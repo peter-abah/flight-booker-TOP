@@ -31,4 +31,15 @@
   <% end %>
 </div>
 
-<%= @flights.to_a %>
+<% unless @flights.nil? %>
+<div class="search-flight-result">
+  <%= form_with url: new_booking_path, method: :get do |form| %>
+    <% @flights.each do |flight| %>
+      <div class="field">
+        <%= form.label :flight_id, flight.pretty_print, value: flight.id %>
+        <%= form.radio_button :flight_id, flight.id %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+<% end %>
