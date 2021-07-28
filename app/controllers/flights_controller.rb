@@ -1,2 +1,13 @@
 class FlightsController < ApplicationController
+  def index
+    @airports = Airport.order(:code)
+    @dates = Flight.select(:start_time).distinct.order(:start_time)
+
+    if params.key?(:date)
+      @flights = Flight.where(to_airport_id: params[:to_airport_id])
+                       .where(from_airport_id: params[:from_airport_id])
+                       .where(start_time: params[:date])
+      @passenger_no = params[:no_of_passengers]
+    end
+  end
 end
