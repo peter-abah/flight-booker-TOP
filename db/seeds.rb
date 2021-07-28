@@ -28,8 +28,8 @@ permutations.each_with_index do |(to_id, from_id), i|
   duration = i.even? ? 180 : 90
   duration = 120 if (i % 3).zero?
 
-  start_time = Date.today + i.day
+  date = Date.today + i.day
 
   Flight.create(to_airport_id: to_id, from_airport_id: from_id, duration: duration,
-                start_time: start_time)
+                date: date)
 end
