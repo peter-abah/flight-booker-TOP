@@ -1,0 +1,23 @@
+<div class="search-flights-container">
+  <%= form_with url: flights_path, method: :get do |f| %>
+    <div class="field">
+      <%= f.collection_select :to_airport_id, airports, :id, :code %>
+    </div>
+
+    <div class="field">
+      <%= f.collection_select :from_airport_id, airports, :id, :code %>
+    </div>
+
+    <div class="field">
+      <%= f.collection_select :date, dates, :date, :formatted_date %>
+    </div>
+
+    <div class="field">
+      <%= f.select :no_of_passengers, 1..4 %>
+    </div>
+
+    <div class="field">
+      <%= f.submit 'Find flights' %>
+    </div>
+  <% end %>
+</div>

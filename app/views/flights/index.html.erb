@@ -7,43 +7,8 @@
   </div>
 </div>
 
-<div class="search-flights-container">
-  <%= form_with url: flights_path, method: :get do |f| %>
-    <div class="field">
-      <%= f.collection_select :to_airport_id, @airports, :id, :code %>
-    </div>
+<%= render partial: 'search_form', locals: { airports: @airports,
+                                             dates: @dates } %>
 
-    <div class="field">
-      <%= f.collection_select :from_airport_id, @airports, :id, :code %>
-    </div>
-
-    <div class="field">
-      <%= f.collection_select :date, @dates, :date, :formatted_date %>
-    </div>
-
-    <div class="field">
-      <%= f.select :no_of_passengers, 1..4 %>
-    </div>
-
-    <div class="field">
-      <%= f.submit 'Find flights' %>
-    </div>
-  <% end %>
-</div>
-
-<% unless @flights.nil? %>
-<div class="search-flight-result">
-  <%= form_with url: new_booking_path, method: :get do |form| %>
-    <% @flights.each do |flight| %>
-      <div class="field">
-        <%= form.hidden :passengers_no, value: @passengers_no %>
-        <%= form.radio_button :flight_id, flight.id %>
-        <%= form.label :flight_id, flight.pretty_print, value: flight.id %>
-      </div>
-    <% end %>
-    <div class="field">
-      <%= form.submit 'Book now' %>
-    </div>
-  <% end %>
-</div>
-<% end %>
+<%= render partial: 'search_results', locals: { flights: @flights,
+                                                passengers_no: @passengers_no } %>
