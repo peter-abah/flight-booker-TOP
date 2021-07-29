@@ -7,5 +7,6 @@ class Flight < ApplicationRecord
   end
 
   def pretty_print
+    "FLIGHT##{id} #{from_airport.code} -> #{to_airport.code} ON #{formatted_date}"
   end
 end
