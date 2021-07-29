@@ -36,6 +36,7 @@
   <%= form_with url: new_booking_path, method: :get do |form| %>
     <% @flights.each do |flight| %>
       <div class="field">
+        <%= form.hidden :passengers_no, value: @passengers_no %>
         <%= form.radio_button :flight_id, flight.id %>
         <%= form.label :flight_id, flight.pretty_print, value: flight.id %>
       </div>
