@@ -7,7 +7,7 @@ class FlightsController < ApplicationController
       @flights = Flight.where(to_airport_id: params[:to_airport_id])
                        .where(from_airport_id: params[:from_airport_id])
                        .where(date: params[:date])
-      @passenger_no = params[:no_of_passengers]
+      @passengers_no = params[:passengers_no]
     end
   end
 end

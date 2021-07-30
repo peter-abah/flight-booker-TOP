@@ -1,0 +1,17 @@
+<div class="flight-container">
+  <div class="flight">
+    <h3 class="flight-title">Flight info</h3>
+    <p class="flight-info">
+      Departure date: <%= flight.formatted_date %>
+    </p>
+    <p class="flight-info">
+      Departure airport: <%= flight.from_airport.code %>
+    </p>
+    <p class="flight-info">
+      Arrival airport: <%= flight.to_airport.code %>
+    </p>
+    <p class="flight-info">
+      <span class="flight-no">Flight #<%= flight.id %></span>
+    </p>
+  </div>
+</div>

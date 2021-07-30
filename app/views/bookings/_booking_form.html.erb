@@ -1,0 +1,24 @@
+<div class="booking-form">
+
+  <%= form_with model: booking do |booking_form| %>
+
+    <div class="passengers-form">
+      <%= booking_form.fields_for :passengers do |f| %>
+      
+        <div class="passenger-form">
+          <div class="field">
+            <%= f.text_field :name, placeholder: 'name' %>
+          </div>
+
+          <div class="field">
+            <%= f.email_field :email, placeholder: 'email' %>
+          </div>
+        </div>
+
+      <% end %>
+    </div>
+
+    <%= booking_form.submit 'Book now' %>
+  <% end %>
+
+</div>
