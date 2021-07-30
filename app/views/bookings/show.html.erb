@@ -1,0 +1,5 @@
+<h3>Your flight has been booked</h3>
+
+<%= render partial: 'flight_info', locals: { flight: @booking.flight } %>
+
+<%= render partial: 'passengers_info', locals: { passengers: @booking.passengers } %>

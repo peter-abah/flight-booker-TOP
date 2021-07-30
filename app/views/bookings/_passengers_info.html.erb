@@ -1,0 +1,12 @@
+<div class="passengers-container">
+  <h3 class="passengers-title">Passengers</h3>
+
+  <% passengers.each do |passenger| %>
+    <div class="passenger">
+      <p class="passenger-info">
+        Name: <%= passenger.name %><br>
+        Email: <%= passenger.email %>
+      </p>
+    </div>
+  <% end %>
+</div>
