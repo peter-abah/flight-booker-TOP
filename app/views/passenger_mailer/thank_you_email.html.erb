@@ -7,7 +7,15 @@
 </head>
 <body>
   <h1>Thanks for booking a flight with us</h1>
-  <p>We hope to see you next time <%= @passenger.name %></p>
+  <p>We hope to see you next time</p>
+  <p>Flight number: #<%= @booking.flight.id %></p>
+  <p>Date: <%= @booking.flight.formatted_date %></p>
+  <ul>
+      <h3>Passengers</h3>
+      <% @passengers.each do |passenger| %>
+        <li><%= passenger.name %></li>
+      <% end %>
+  </ul>
   <p>Have a nice day</p>
 </body>
 </html>

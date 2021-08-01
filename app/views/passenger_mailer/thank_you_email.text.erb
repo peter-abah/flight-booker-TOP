@@ -1,6 +1,14 @@
 Thanks for booking a flight with us
 ======================================
 
-We hope to see you next time <%= @passenger.name %>
+We hope to see you next time
+
+Flight number: #<%= @booking.flight.id %>
+Date: <%= @booking.flight.formatted_date %>
+
+Passengers
+<% @passengers.each do |passenger| %>
+  * <%= passenger.name %>
+<% end %>
 
 Have a nice day
