@@ -94,8 +94,22 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
+
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.action_mailer.default_url_options = { host: 'book-flights-top.herokuapp.com', protocol: 'https'  }
+
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.gmail.com',
+    port:                 587,
+    domain:               'book-flights-top.herokuapp.com',
+    user_name:            Figaro.env.gmail_username,
+    password:             Figaro.env.gmail_password,
+    authentication:       'plain',
+    enable_starttls_auto: true }
 
   # Inserts middleware to perform automatic connection switching.
   # The `database_selector` hash is used to pass options to the DatabaseSelector

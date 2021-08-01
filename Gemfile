@@ -25,6 +25,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise', '~> 4.8'
 gem 'simple_form', '~> 5.1'
 gem 'better_errors', '~> 2.9', '>= 2.9.1'
+gem 'figaro'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
