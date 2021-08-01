@@ -16,6 +16,7 @@ class BookingsController < ApplicationController
     @flight = Flight.find(@booking.flight.id)
 
     if @booking.save
+      PassengerMailer.with(booking: @booking).thank_you_email.deliver_later
       redirect_to @booking
     else
       render :new
